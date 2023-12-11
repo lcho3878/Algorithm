@@ -18,34 +18,22 @@ func solution(_ n:Int) -> [Int] {
     while n > 0 {
         let boundary = n - 1
         for i in 0..<n {
+            let condition = i == boundary
+            
             array[row][column] = number
             switch direction {
             case .down:
-                if i == boundary {
-                    direction = .right
-                    column += 1
-                }
-                else {
-                    row += 1
-                }
+                direction = condition ? .right : .down
+                row += condition ? 0 : 1
+                column += condition ? 1 : 0
             case .right:
-                if i == boundary {
-                    direction = .up
-                    row -= 1
-                    column -= 1
-                }
-                else {
-                    column += 1
-                }
+                direction = condition ? .up : .right
+                row -= condition ? 1 : 0
+                column -= condition ? 1 : -1
             case .up:
-                if i == boundary {
-                    direction = .down
-                    row += 1
-                }
-                else {
-                    row -= 1
-                    column -= 1
-                }
+                direction = condition ? .down : .up
+                row += condition ? 1 : -1
+                column -= condition ? 0 : 1
             }
             number += 1
         }
