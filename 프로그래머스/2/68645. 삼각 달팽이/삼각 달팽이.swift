@@ -8,7 +8,6 @@ func solution(_ n:Int) -> [Int] {
     }
     
     var array: [[Int]] = .init(repeating: .init(repeating: 0, count: n), count: n)
-    let targetNumber = (1...n).reduce(0, +)
     var direction: Direction = .down
     var number = 1
     var row = 0
@@ -16,7 +15,9 @@ func solution(_ n:Int) -> [Int] {
     var n = n
     
     while n > 0 {
+        
         let boundary = n - 1
+        
         for i in 0..<n {
             let condition = i == boundary
             
@@ -41,6 +42,5 @@ func solution(_ n:Int) -> [Int] {
         n -= 1
     }
     
-
     return array.flatMap{ $0 }.filter{ $0 != 0 }
 }
