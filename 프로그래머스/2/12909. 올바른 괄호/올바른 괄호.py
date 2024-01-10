@@ -8,6 +8,4 @@ def solution(s):
                 stack.pop()
             else:
                 return False
-    if stack:
-        return False
-    return True
+    return len(stack) == 0
