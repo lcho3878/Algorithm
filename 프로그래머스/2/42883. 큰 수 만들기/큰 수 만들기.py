@@ -1,10 +1,9 @@
 def solution(number, k):
-    answer = [] # Stack
-    
-    for num in number:
-        while k > 0 and answer and answer[-1] < num:
-            answer.pop()
+    number = list(map(int, number))
+    stack = [] 
+    for n in number:
+        while k > 0 and stack and stack[-1] < n:
+            stack.pop()
             k -= 1
-        answer.append(num)
-        
-    return ''.join(answer[:len(answer) - k])
+        stack.append(n)
+    return ''.join(map(str, stack))[:len(stack) - k]
