@@ -1,0 +1,28 @@
+
+def isValid(s):
+    stack = []
+    list = "({["
+    for bracket in s:
+        if bracket in list:
+            stack.append(bracket)
+        else:
+            if stack:
+                last = stack[-1]
+                if bracket == ")" and "(" in stack:
+                    stack.pop()
+                elif bracket == "}" and "{" in stack:
+                    stack.pop()
+                elif bracket == "]" and "[" in stack:
+                    stack.pop()
+                else:
+                    return False
+            else:
+                return False
+    return len(stack) == 0
+def solution(s):
+    answer = 0
+    for i in range(len(s)):
+        temp = s[i:] + s[:i]
+        if isValid(temp):
+            answer += 1
+    return answer
