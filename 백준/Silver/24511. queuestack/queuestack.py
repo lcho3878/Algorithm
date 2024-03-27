@@ -1,11 +1,10 @@
-from sys import stdin
 from collections import deque
 if __name__ == '__main__':
-    n = int(stdin.readline())
-    A = list(map(int, stdin.readline().split()))
-    B = list(map(int, stdin.readline().split()))
-    m = int(stdin.readline())
-    C = list(map(int, stdin.readline().split()))
+    n = int(input())
+    A = list(map(int, input().split()))
+    B = list(map(int, input().split()))
+    m = int(input())
+    C = list(map(int, input().split()))
     answer = deque()
     for i in range(n):
         if A[i] == 0:
