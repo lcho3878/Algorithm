@@ -1,10 +1,12 @@
 import Foundation
 
-var set = Set(1...30)
+var student = Array(repeating: 1, count: 30)
 for _ in 0..<28 {
     let n = Int(readLine()!)!
-    set.remove(n)
+    student[n - 1] = 0
 }
-for s in set.sorted() {
-    print(s)
+for i in 0..<30 {
+    if student[i] == 1 {
+        print(i + 1)
+    }
 }
