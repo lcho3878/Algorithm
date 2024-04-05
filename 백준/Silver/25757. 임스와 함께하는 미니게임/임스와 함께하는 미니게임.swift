@@ -3,10 +3,10 @@ import Foundation
 let ng = readLine()!.split(separator: " ")
 let n = Int(ng[0])!
 let game = ng[1]
-var nameSet = Set([String]())
+var nameDict = [String: Int]()
 for _ in 0..<n {
     let name = readLine()!
-    nameSet.insert(name)
+    nameDict[name] = 1
 }
 
 var k = 0
@@ -21,4 +21,4 @@ else {
     k += 3
 }
 
-print(nameSet.count / k)
+print(nameDict.count / k)
